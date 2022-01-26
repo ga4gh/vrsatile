@@ -7,7 +7,9 @@
          "description": "The abstract *Value Object Descriptor* parent class. All attributes of this parent class are inherited by descendent classes.",
          "oneOf": [
             {
-               "$ref": "#/$defs/VariationDescriptor"
+               "$ref": "#/$defs/VariationDescriptor",
+               "$ref": "#/$defs/LocationDescriptor",
+               "$ref": "#/$defs/GeneDescriptor"
             }
          ]
       },
@@ -161,6 +163,47 @@
             "pos",
             "ref"
          ]
-      }
+      },
+      "LocationDescriptor": {
+         "description": "This descriptor is intended to reference VRSLocation value objects.In addition to the attributes inherited from its ValueObjectDescriptor parent class, the Sequence Location Descriptor has the following attributes:",
+         "additionalProperties": false,
+         "type": "object",
+         "properties": {
+            "type": {
+               "type": "string",
+               "enum": ["LocationDescriptor"],
+               "description": "MUST be \"LocationDescriptor\""
+            },
+            "location_id": {
+               "description": "This MUST be provided if `location` is omitted",
+               "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/1.2.0/schema/vrs.json#/definitions/CURIE"
+            },
+            "location": {
+               "$ref": "https://vrs.ga4gh.org/en/latest/terms_and_model.html#location",
+               "description": "This MUST be provided if `location_id` is omitted"
+            }
+         } 
+      },
+      "GeneDescriptor": {
+         "description": "This descriptor is intended to reference VRSGene value objects. In addition to the attributes inherited from its ValueObjectDescriptor parent class, the Gene Descriptor has the following attributes:",
+         "additionalProperties": false,
+         "type": "object",
+         "properties": {
+            "type": {
+               "type": "string",
+               "enum":["GeneDescriptor"],
+               "description": "MUST be \"GeneDescriptor\""
+            },
+            "gene_id": {
+               "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/1.2.0/schema/vrs.json#/definitions/CURIE",
+               "description": "This MUST be provided if `gene` is omitted"
+            },
+            "gene": {
+               "$ref": "https://vrs.ga4gh.org/en/latest/terms_and_model.html#gene",
+               "description": "This MUST be provided if `gene_id` is omitted"
+            }
+         }
+
+      } 
    }
 }
