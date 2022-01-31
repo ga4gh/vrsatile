@@ -164,8 +164,8 @@ $defs:
   
   LocationDescriptor:
     description: >-
-      This descriptor is intended to reference :ref:`VRSLocation` value objects.In addition to the
-      attributes inherited from its :ref:`ValueObjectDescriptor`parent class, the Sequence Location
+      This descriptor is intended to reference :ref:`VRSLocation` value objects. In addition to the
+      attributes inherited from its :ref:`ValueObjectDescriptor` parent class, the Sequence Location
       Descriptor has the following attributes:
     additionalProperties: false
     type: object
