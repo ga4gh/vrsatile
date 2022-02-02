@@ -11,6 +11,8 @@ $defs:
       of this parent class are inherited by descendent classes.
     oneOf:
       - $ref: "#/$defs/VariationDescriptor"
+      - $ref: "#/$defs/LocationDescriptor"
+      - $ref: "#/$defs/GeneDescriptor"
     heritable_properties:
       id:
         $ref_curie: "vrs:CURIE"
@@ -159,3 +161,48 @@ $defs:
           Additional information: Semicolon-separated series of additional
           information fields.
     required: ['genome_assembly', 'chrom', 'pos', 'ref', 'alt']
+  
+  LocationDescriptor:
+    description: >-
+      This descriptor is intended to reference :ref:`VRSLocation` value objects. In addition to the
+      attributes inherited from its :ref:`ValueObjectDescriptor` parent class, the Sequence Location
+      Descriptor has the following attributes:
+    additionalProperties: false
+    type: object
+    properties:
+      type:
+        type: string
+        enum: [“LocationDescriptor”]
+        description: >-
+          MUST be “LocationDescriptor”
+      location_id:
+        $ref_curie: "vrs:CURIE"
+        description: >-
+          This MUST be provided if `location` is omitted
+      location:
+        $ref_curie: "vrs:CURIE"
+        description: >-
+          This MUST be provided if `location_id` is omitted
+    
+  GeneDescriptor:
+    description: >-
+      This descriptor is intended to reference :ref:`VRSGene` value objects. In addition to the
+      attributes inherited from its :ref:`ValueObjectDescriptor` parent class, the Gene Descriptor
+      has the following attributes:
+    additionalProperties: false
+    type: object
+    properties:
+      type:
+        type: string
+        enum: [“GeneDescriptor”]
+        description: >-
+          MUST be “GeneDescriptor”
+      gene_id:
+        $ref_curie: "vrs:CURIE"
+        description: >-
+          This MUST be provided if `gene` is omitted
+      gene:
+        $ref_curie: "vrs:CURIE"
+        description: >-
+          This MUST be provided if `gene_id` is omitted
+
