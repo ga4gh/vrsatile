@@ -180,7 +180,7 @@ $defs:
         description: >-
           This MUST be provided if `location` is omitted
       location:
-        $ref: "#/$defs/VRSLocation"
+        $ref_curie: "vrs:CURIE"
         description: >-
           This MUST be provided if `location_id` is omitted
     
@@ -202,7 +202,7 @@ $defs:
         description: >-
           This MUST be provided if `gene` is omitted
       gene:
-        $ref: "#/$defs/VRSGene"
+        $ref_curie: "vrs:CURIE"
         description: >-
           This MUST be provided if `gene_id` is omitted
 
