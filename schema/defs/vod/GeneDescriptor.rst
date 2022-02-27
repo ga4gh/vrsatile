@@ -1,10 +1,10 @@
 **Computational Definition**
 
-This descriptor class is used for describing Categorical Variation value objects.
+This descriptor is intended to reference VRS Gene value objects. In addition to the attributes inherited from its `Value Object Descriptor`_ parent class, the Gene Descriptor has the following attributes:
 
 **Information Model**
 
-Some CategoricalVariationDescriptor attributes are inherited from :ref:`ValueObjectDescriptor`.
+Some GeneDescriptor attributes are inherited from :ref:`ValueObjectDescriptor`.
 
 .. list-table::
    :class: clean-wrap
@@ -23,7 +23,7 @@ Some CategoricalVariationDescriptor attributes are inherited from :ref:`ValueObj
    *  - type
       - string
       - 1..1
-      - MUST be "VariationDescriptor".
+      - MUST be "GeneDescriptor".
    *  - label
       - string
       - 0..1
@@ -44,19 +44,11 @@ Some CategoricalVariationDescriptor attributes are inherited from :ref:`ValueObj
       - :ref:`Extension`
       - 0..m
       - List of resource-specific :ref:`Extensions <Extension>` needed to describe the value object.
-   *  - version
-      - string
-      - 0..1
-      - The version of the Categorical Variation Descriptor.
-   *  - categorical_variation_id
+   *  - gene_id
       - `CURIE <https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE>`_
       - 0..1
-      - This SHOULD be provided if *categorical_variation* is omitted.
-   *  - categorical_variation
-      - `CategoricalVariation <https://raw.githubusercontent.com/ga4gh/vrsatile/main/schema/catvars.json#/$defs/CategoricalVariation>`_
+      - This SHOULD be provided if variation_id is omitted.
+   *  - gene
+      - `Gene <https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/Gene>`_
       - 0..1
-      - This SHOULD be provided if *variation_id* is omitted.
-   *  - members
-      - :ref:`VariationMember`
-      - 0..m
-      - VariationMember instances that fall within the functional domain of the Categorical Variation.
+      - This MUST be provided if gene_id is omitted.

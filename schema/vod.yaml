@@ -9,6 +9,7 @@ $defs:
     oneOf:
     - $ref: '#/$defs/VariationDescriptor'
     - $ref: '#/$defs/CategoricalVariationDescriptor'
+    - $ref: '#/$defs/GeneDescriptor'
   VariationDescriptor:
     description: This descriptor class is used for describing VRS Variation value
       objects.
@@ -91,6 +92,30 @@ $defs:
     required:
     - id
     - type
+  GeneDescriptor:
+    description: 'This descriptor is intended to reference VRS Gene value objects.
+      In addition to the attributes inherited from its `Value Object Descriptor`_
+      parent class, the Gene Descriptor has the following attributes:'
+    properties:
+      id: *id001
+      type:
+        type: string
+        const: GeneDescriptor
+        description: MUST be "GeneDescriptor".
+      label: *id002
+      description: *id003
+      xrefs: *id004
+      alternate_labels: *id005
+      extensions: *id006
+      gene_id:
+        description: This SHOULD be provided if variation_id is omitted.
+        $ref: https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE
+      gene:
+        description: This MUST be provided if gene_id is omitted.
+        $ref: https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/Gene
+    required:
+    - id
+    - type
   Extension:
     description: The Extension class provides VODs with a means to extend descriptions
       with other attributes unique to a content provider. These extensions are not
@@ -168,14 +193,14 @@ $defs:
         description: This SHOULD be provided if *categorical_variation* is omitted.
         $ref: https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE
       categorical_variation:
-        $ref: catvars.json/$defs/CategoricalVariation
         description: This SHOULD be provided if *variation_id* is omitted.
+        $ref: https://raw.githubusercontent.com/ga4gh/vrsatile/main/schema/catvars.json#/$defs/CategoricalVariation
       members:
         description: VariationMember instances that fall within the functional domain
           of the Categorical Variation.
         type: array
         items:
-          $ref: VariationMember
+          $ref: '#/$defs/VariationMember'
     required:
     - id
     - type
@@ -191,7 +216,7 @@ $defs:
       expressions:
         type: array
         items:
-          $ref: Expression
+          $ref: '#/$defs/Expression'
         minItems: 1
       variation_id:
         $ref: https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE

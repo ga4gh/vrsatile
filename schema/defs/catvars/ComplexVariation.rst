@@ -1,6 +1,6 @@
 **Computational Definition**
 
-A categorical variation domain jointly characterized by two or more other categorical  variation domains.
+A categorical variation domain jointly characterized by two or more other categorical variation domains.
 
 **Information Model**
 
@@ -27,9 +27,9 @@ Some ComplexVariation attributes are inherited from :ref:`CategoricalVariation`.
    *  - complement
       - boolean
       - 1..1
-      - This field indicates that a categorical variation is defined to include (false) or exclude (true) variation concepts matching the categorical variation. This is  equivalent to a logical NOT operation on the categorical variation properties.
+      - This field indicates that a categorical variation is defined to include (false) or exclude (true) variation concepts matching the categorical variation. This is equivalent to a logical NOT operation on the categorical variation properties.
    *  - operands
-      - :ref:`CategoricalVariation`
+      - `CategoricalVariation <https://raw.githubusercontent.com/ga4gh/vrsatile/main/schema/vod.json#/$defs/CategoricalVariation>`_
       - 2..m
       - The :ref:`CategoricalVariation` objects that are being evaluated collectively.
    *  - operator

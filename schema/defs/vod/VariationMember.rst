@@ -19,7 +19,7 @@ A compact class for representing a variation context that is a member of a Categ
       - 0..1
       - MUST be "VariationMember"
    *  - expressions
-      - `Expression <Expression>`_
+      - :ref:`Expression`
       - 1..m
       - 
    *  - variation_id

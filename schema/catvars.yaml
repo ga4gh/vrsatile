@@ -4,14 +4,14 @@ title: GA4GH-Categorical-Variation-Definitions
 type: object
 $defs:
   CategoricalVariation:
-    description: A representation of a categorically-defined  [functional domain](https://en.wikipedia.org/wiki/Domain_of_a_function)  for
-      variation, in which individual variation instances may be members.
+    description: A representation of a categorically-defined [functional domain](https://en.wikipedia.org/wiki/Domain_of_a_function)
+      for variation, in which individual variation instances may be members.
     oneOf:
     - $ref: '#/$defs/CanonicalVariation'
     - $ref: '#/$defs/ComplexVariation'
   ComplexVariation:
     description: A categorical variation domain jointly characterized by two or more
-      other categorical  variation domains.
+      other categorical variation domains.
     properties:
       _id: &id001
         type: string
@@ -24,12 +24,12 @@ $defs:
         type: boolean
         description: This field indicates that a categorical variation is defined
           to include (false) or exclude (true) variation concepts matching the categorical
-          variation. This is  equivalent to a logical NOT operation on the categorical
+          variation. This is equivalent to a logical NOT operation on the categorical
           variation properties.
       operands:
         type: array
         items:
-          $ref: '#/$defs/CategoricalVariation'
+          $ref: https://raw.githubusercontent.com/ga4gh/vrsatile/main/schema/vod.json#/$defs/CategoricalVariation
         minItems: 2
         description: The CategoricalVariation objects that are being evaluated collectively.
       operator:
@@ -46,7 +46,7 @@ $defs:
     - type
   CanonicalVariation:
     description: A categorical variation domain characterized by a representative
-      Variation context  to which members lift-over, project, translate, or otherwise
+      Variation context to which members lift-over, project, translate, or otherwise
       directly align.
     properties:
       _id: *id001

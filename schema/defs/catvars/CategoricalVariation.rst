@@ -1,6 +1,6 @@
 **Computational Definition**
 
-A representation of a categorically-defined  `functional domain <https://en.wikipedia.org/wiki/Domain_of_a_function>`_  for variation, in which individual variation instances may be members.
+A representation of a categorically-defined `functional domain <https://en.wikipedia.org/wiki/Domain_of_a_function>`_ for variation, in which individual variation instances may be members.
 
 **Information Model**
 
@@ -25,4 +25,4 @@ A representation of a categorically-defined  `functional domain <https://en.wiki
    *  - complement
       - boolean
       - 1..1
-      - This field indicates that a categorical variation is defined to include (false) or exclude (true) variation concepts matching the categorical variation. This is  equivalent to a logical NOT operation on the categorical variation properties.
+      - This field indicates that a categorical variation is defined to include (false) or exclude (true) variation concepts matching the categorical variation. This is equivalent to a logical NOT operation on the categorical variation properties.

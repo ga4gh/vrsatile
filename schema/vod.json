@@ -12,6 +12,9 @@
             },
             {
                "$ref": "#/$defs/CategoricalVariationDescriptor"
+            },
+            {
+               "$ref": "#/$defs/GeneDescriptor"
             }
          ]
       },
@@ -109,6 +112,62 @@
             "allelic_state": {
                "description": "We RECOMMEND that the *allelic_state* of a variation be described by terms from the Genotype Ontology (GENO). These SHOULD descend from concept `GENO:0000875 <http://purl.obolibrary.org/obo/GENO_0000875>`.",
                "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE"
+            }
+         },
+         "required": [
+            "id",
+            "type"
+         ]
+      },
+      "GeneDescriptor": {
+         "description": "This descriptor is intended to reference VRS Gene value objects. In addition to the attributes inherited from its `Value Object Descriptor`_ parent class, the Gene Descriptor has the following attributes:",
+         "properties": {
+            "id": {
+               "description": "Descriptor ID; MUST be unique within document.",
+               "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE"
+            },
+            "type": {
+               "type": "string",
+               "const": "GeneDescriptor",
+               "description": "MUST be \"GeneDescriptor\"."
+            },
+            "label": {
+               "type": "string",
+               "description": "A primary label for the value object."
+            },
+            "description": {
+               "type": "string",
+               "description": "A free-text description of the value object."
+            },
+            "xrefs": {
+               "type": "array",
+               "uniqueItems": true,
+               "items": {
+                  "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE"
+               },
+               "description": "List of CURIEs representing associated concepts."
+            },
+            "alternate_labels": {
+               "type": "array",
+               "items": {
+                  "type": "string"
+               },
+               "description": "List of strings representing alternate labels for the value object."
+            },
+            "extensions": {
+               "type": "array",
+               "items": {
+                  "$ref": "#/$defs/Extension"
+               },
+               "description": "List of resource-specific Extensions needed to describe the value object."
+            },
+            "gene_id": {
+               "description": "This SHOULD be provided if variation_id is omitted.",
+               "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE"
+            },
+            "gene": {
+               "description": "This MUST be provided if gene_id is omitted.",
+               "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/Gene"
             }
          },
          "required": [
@@ -233,14 +292,14 @@
                "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE"
             },
             "categorical_variation": {
-               "$ref": "catvars.json/$defs/CategoricalVariation",
-               "description": "This SHOULD be provided if *variation_id* is omitted."
+               "description": "This SHOULD be provided if *variation_id* is omitted.",
+               "$ref": "https://raw.githubusercontent.com/ga4gh/vrsatile/main/schema/catvars.json#/$defs/CategoricalVariation"
             },
             "members": {
                "description": "VariationMember instances that fall within the functional domain of the Categorical Variation.",
                "type": "array",
                "items": {
-                  "$ref": "VariationMember"
+                  "$ref": "#/$defs/VariationMember"
                }
             }
          },
@@ -260,7 +319,7 @@
             "expressions": {
                "type": "array",
                "items": {
-                  "$ref": "Expression"
+                  "$ref": "#/$defs/Expression"
                },
                "minItems": 1
             },

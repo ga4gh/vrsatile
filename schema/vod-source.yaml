@@ -4,6 +4,7 @@ title: GA4GH-Value-Object-Descriptor-Definitions
 type: object
 namespaces:
   vrs: https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/
+  catvars: https://raw.githubusercontent.com/ga4gh/vrsatile/main/schema/catvars.json#/$defs/
 
 $defs:
   ValueObjectDescriptor:
@@ -13,6 +14,7 @@ $defs:
     oneOf:
       - $ref: "#/$defs/VariationDescriptor"
       - $ref: "#/$defs/CategoricalVariationDescriptor"
+      - $ref: "#/$defs/GeneDescriptor"
     heritable_properties:
       id:
         $ref_curie: "vrs:CURIE"
@@ -111,6 +113,21 @@ $defs:
           Genotype Ontology (GENO). These SHOULD descend from concept
           `GENO:0000875 <http://purl.obolibrary.org/obo/GENO_0000875>`.
 
+  GeneDescriptor:
+    description: >-
+      This descriptor is intended to reference VRS Gene value objects. In addition to the attributes inherited from its `Value Object Descriptor`_ parent class, the Gene Descriptor has the following attributes:
+    properties:
+      type:
+        type: string
+        const: GeneDescriptor
+        description: MUST be "GeneDescriptor".
+      gene_id:
+        $ref_curie: "vrs:CURIE"
+        description: This SHOULD be provided if variation_id is omitted.
+      gene:
+        $ref_curie: "vrs:Gene"
+        description: This MUST be provided if gene_id is omitted.
+
   Extension:
     description: >-
       The Extension class provides VODs with a means to extend descriptions
@@ -166,7 +183,7 @@ $defs:
         description: >-
           This SHOULD be provided if *categorical_variation* is omitted.
       categorical_variation:
-        $ref: catvars.json/$defs/CategoricalVariation
+        $ref_curie: "catvars:CategoricalVariation"
         description: >-
           This SHOULD be provided if *variation_id* is omitted.
       members:
@@ -175,7 +192,7 @@ $defs:
           of the Categorical Variation.
         type: array
         items:
-          $ref: VariationMember
+          $ref: "#/$defs/VariationMember"
 
   VariationMember:
     description: >-
@@ -190,7 +207,7 @@ $defs:
       expressions:
         type: array
         items:
-          $ref: Expression
+          $ref: "#/$defs/Expression"
         minItems: 1
       variation_id:
         $ref_curie: "vrs:CURIE"
