@@ -239,7 +239,7 @@
                "description": "VariationMember instances that fall within the functional domain of the Categorical Variation.",
                "type": "array",
                "items": {
-                  "$ref": "VariationMember"
+                  "$ref": "#/$defs/VariationMember"
                }
             }
          },
@@ -259,7 +259,7 @@
             "expressions": {
                "type": "array",
                "items": {
-                  "$ref": "Expression"
+                  "$ref": "#/$defs/Expression"
                },
                "minItems": 1
             },

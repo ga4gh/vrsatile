@@ -174,7 +174,7 @@ $defs:
           of the Categorical Variation.
         type: array
         items:
-          $ref: VariationMember
+          $ref: '#/$defs/VariationMember'
     required:
     - id
     - type
@@ -190,7 +190,7 @@ $defs:
       expressions:
         type: array
         items:
-          $ref: Expression
+          $ref: '#/$defs/Expression'
         minItems: 1
       variation_id:
         $ref: https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE
