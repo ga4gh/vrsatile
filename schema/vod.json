@@ -232,7 +232,7 @@
                "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE"
             },
             "value": {
-               "$ref": "catvars.json/$defs/CategoricalVariation",
+               "$ref": "catvars.json#/$defs/CategoricalVariation",
                "description": "This SHOULD be provided if *variation_id* is omitted."
             },
             "members": {
