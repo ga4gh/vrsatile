@@ -19,9 +19,7 @@ $defs:
         $ref: https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE
       type:
         type: string
-        enum:
-        - VariationDescriptor
-        default: VariationDescriptor
+        const: VariationDescriptor
         description: MUST be "VariationDescriptor".
       label: &id002
         type: string
@@ -153,8 +151,8 @@ $defs:
       id: *id001
       type:
         type: string
-        const: VariationDescriptor
-        description: MUST be "VariationDescriptor".
+        const: CategoricalVariationDescriptor
+        description: MUST be "CategoricalVariationDescriptor".
       label: *id002
       description: *id003
       xrefs: *id004
