@@ -163,10 +163,15 @@ $defs:
       version:
         type: string
         description: The version of the Categorical Variation Descriptor.
-      categorical_variation_id:
+      # value.id is a field which will exist and contain the id when the value object is present.
+      # Could we reuse that? If the value object is not filled in here, the id could still be in value.id.
+      # This is kind of how GraphQL and other graph traversal languages work.
+      # You can request descriptor{value{id}}, and additional fields like descriptor{value{id type}}
+      # If the type is not available because only the id is there, it can be returned as null, or resolved via some means
+      value_id:
         description: This SHOULD be provided if *categorical_variation* is omitted.
         $ref: https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE
-      categorical_variation:
+      value:
         $ref: catvars.json/$defs/CategoricalVariation
         description: This SHOULD be provided if *variation_id* is omitted.
       members:

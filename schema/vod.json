@@ -227,11 +227,11 @@
                "type": "string",
                "description": "The version of the Categorical Variation Descriptor."
             },
-            "categorical_variation_id": {
+            "value_id": {
                "description": "This SHOULD be provided if *categorical_variation* is omitted.",
                "$ref": "https://raw.githubusercontent.com/ga4gh/vrs/1.2.1/schema/vrs.json#/definitions/CURIE"
             },
-            "categorical_variation": {
+            "value": {
                "$ref": "catvars.json/$defs/CategoricalVariation",
                "description": "This SHOULD be provided if *variation_id* is omitted."
             },
